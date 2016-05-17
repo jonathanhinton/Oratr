@@ -1,5 +1,4 @@
-# Oratr
-## A Personal, Public-Speaking Coach.
+# Oratr: A Personal, Public-Speaking Coach.
 Oratr is a web app designed to improve a users public speaking ability by generating realtime feedback on vocal cadence and dynamics.
 
 #### MVP Features:
