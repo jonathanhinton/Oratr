@@ -4,7 +4,7 @@ Oratr is a web app designed to improve a users public speaking ability by genera
 #### MVP Features:
 - Create/Authenticate a User
 - Save User Speech data to Database
-- Display Realtime Metrics of Words Per Minute and relative voice level
+- Display Metrics of Words Per Minute and relative voice level
 - Display Text of speech using Web Speech API
 - Display Target Delivery Time countdown timer
 
