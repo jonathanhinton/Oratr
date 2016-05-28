@@ -12,6 +12,6 @@ namespace Oratr.Models
         public string SpeechBody { get; set; }
         public TimeSpan TargetDeliveryTime { get; set; }
 
-        public virtual ApplicationUser CreatedBy { get; set; }
+        public ApplicationUser CreatedBy { get; set; }
     }
 }
