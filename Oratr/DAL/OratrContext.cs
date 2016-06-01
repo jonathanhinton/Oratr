@@ -10,5 +10,6 @@ namespace Oratr.DAL
     public class OratrContext : ApplicationDbContext
     {
         public virtual DbSet<Speech> Speeches { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
     }
 }

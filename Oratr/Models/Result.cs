@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Oratr.Models
 {
-    public class Results
+    public class Result
     {
         public int ResultsId { get; set; }
         public int ActualWPM { get; set; }
