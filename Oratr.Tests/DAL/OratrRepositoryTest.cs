@@ -65,8 +65,9 @@ namespace Oratr.Tests.DAL
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void RepoEnsureICanCreateAnInstance()
         {
+            Assert.IsNotNull(Repo);
         }
     }
 }
