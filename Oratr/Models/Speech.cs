@@ -13,5 +13,6 @@ namespace Oratr.Models
         public TimeSpan TargetDeliveryTime { get; set; }
 
         public ApplicationUser CreatedBy { get; set; }
+        public Result SpeechResult { get; set; }
     }
 }
