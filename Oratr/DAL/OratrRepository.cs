@@ -34,7 +34,10 @@ namespace Oratr.DAL
 
         public void AddSpeech(string speechTitle, string speechBody, ApplicationUser created_by)
         {
-            Speech new_speech = new Speech { SpeechTitle = null, SpeechBody = null, CreatedBy = null};
+            //these fields need to be fully fleshed out
+            Speech new_speech = new Speech { SpeechTitle = speechTitle, SpeechBody = speechBody, CreatedBy = created_by};
+            context.Speeches.Add(new_speech);
+            context.SaveChanges();
 
         }
 
