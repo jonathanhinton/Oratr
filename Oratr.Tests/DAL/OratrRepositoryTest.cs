@@ -116,10 +116,14 @@ namespace Oratr.Tests.DAL
 
             // Act
             ApplicationUser created_by = new ApplicationUser();
-            created_by.Id = "Hello";
+            created_by.Id = "fake_user_id";
+            string speechTitle = "Some Title";
+            string speechBody = "Some text that is a lot longer in order to mock the string that represents the body of the text";
+
+            Repo.AddSpeech(speechTitle, speechBody, created_by);
 
             // Assert
-
+            Assert.AreEqual(1, Repo.GetSpeechCount());
         }
     }
 }
