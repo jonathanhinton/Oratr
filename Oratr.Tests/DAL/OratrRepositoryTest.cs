@@ -51,7 +51,7 @@ namespace Oratr.Tests.DAL
             mock_speech_table.As<IQueryable<Speech>>().Setup(m => m.Expression).Returns(speech_data.Expression);
             mock_speech_table.As<IQueryable<Speech>>().Setup(m => m.Provider).Returns(speech_data.Provider);
 
-            // Tell mocked VotrContext to use our fully mocked Datasource. (List<Speech>)
+            // Tell mocked OratrContext to use our fully mocked Datasource. (List<Speech>)
             mock_context.Setup(m => m.Speeches).Returns(mock_speech_table.Object);
 
             // Telling fake DbSet to use our datasource like something Queryable
@@ -60,8 +60,12 @@ namespace Oratr.Tests.DAL
             mock_result_table.As<IQueryable<Result>>().Setup(m => m.Expression).Returns(result_data.Expression);
             mock_result_table.As<IQueryable<Result>>().Setup(m => m.Provider).Returns(result_data.Provider);
 
-            // Tell mocked VotrContext to use our fully mocked Datasource. (List<Result>)
+            // Tell mocked OratrContext to use our fully mocked Datasource. (List<Result>)
             mock_context.Setup(m => m.Results).Returns(mock_result_table.Object);
+
+            // Hijack the call to add information to the database, instead add it in the list so as to mock Add aciton
+            mock_result_table.Setup(m => m.Add(It.IsAny<Result>())).Callback((Result result) => result_datasource.Add(result));
+            mock_speech_table.Setup(m => m.Add(It.IsAny<Speech>())).Callback((Speech speech) => speech_datasource.Add(speech));
         }
 
         [TestMethod]
