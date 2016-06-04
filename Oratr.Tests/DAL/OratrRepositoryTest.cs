@@ -125,5 +125,45 @@ namespace Oratr.Tests.DAL
             // Assert
             Assert.AreEqual(1, Repo.GetSpeechCount());
         }
+
+        [TestMethod]
+        public void RepoEnsureICanGetSpeeches()
+        {
+            // Arrange
+            Speech speech1 = new Speech { SpeechId = 1, SpeechTitle = "some title", SpeechBody = "some body" };
+            Speech speech2 = new Speech { SpeechId = 2, SpeechTitle = "some title", SpeechBody = "some body" };
+            Speech speech3 = new Speech { SpeechId = 3, SpeechTitle = "some title", SpeechBody = "some body" };
+            speech_datasource.Add(speech1);
+            speech_datasource.Add(speech2);
+            speech_datasource.Add(speech3);
+
+            ConnectMocksToDatastore();
+            // Act
+            List<Speech> speeches = Repo.GetSpeeches();
+
+            // Assert
+            Assert.AreEqual(3, speeches.Count);
+        }
+
+        [TestMethod]
+        public void EnsureICanGetSpecificSpeech()
+        {
+            // Arrange
+            Speech speech1 = new Speech { SpeechId = 1, SpeechTitle = "some title", SpeechBody = "some body" };
+            Speech speech2 = new Speech { SpeechId = 2, SpeechTitle = "some title", SpeechBody = "some body" };
+            Speech speech3 = new Speech { SpeechId = 3, SpeechTitle = "some title", SpeechBody = "some body" };
+            speech_datasource.Add(speech1);
+            speech_datasource.Add(speech2);
+            speech_datasource.Add(speech3);
+
+            ConnectMocksToDatastore();
+
+            // Act
+            Speech found_speech = Repo.GetSpeech(2);
+
+            // Assert
+            Assert.IsNotNull(found_speech);
+            Assert.AreEqual(found_speech, speech2);
+        }
     }
 }
