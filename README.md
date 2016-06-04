@@ -2,7 +2,6 @@
 Oratr is a web app designed to improve a users public speaking ability by generating realtime feedback on vocal cadence and dynamics.
 
 #### MVP Features:
-- Create/Authenticate a User
 - Save User Speech data to Database
 - Display Metrics of Words Per Minute and relative voice level
 - Display Text of speech using Web Speech API
