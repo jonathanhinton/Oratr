@@ -53,5 +53,18 @@ namespace Oratr.DAL
                 wpm = created_by.UserWPM;
             }
         }
+
+        public Speech GetSpeech(int _speech_id)
+        {
+            Speech speech;
+            try
+            {
+                speech = context.Speeches.First(p => p.SpeechId == _speech_id);
+            } catch (Exception)
+            {
+                throw new NotFoundException();
+            }
+            return speech;
+        }
     }
 }
