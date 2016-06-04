@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Oratr.Models;
 using Oratr.DAL;
+using Moq;
 using System.Collections.Generic;
+using Oratr.Models;
 using System.Linq;
 using System.Data.Entity;
-using Moq;
 
 
 namespace Oratr.Tests.DAL
@@ -113,9 +113,13 @@ namespace Oratr.Tests.DAL
         {
             // Arrange
             ConnectMocksToDatastore();
+
             // Act
+            ApplicationUser created_by = new ApplicationUser();
+            created_by.Id = "Hello";
 
             // Assert
+
         }
     }
 }
