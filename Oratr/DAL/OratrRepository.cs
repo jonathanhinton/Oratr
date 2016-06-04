@@ -31,5 +31,24 @@ namespace Oratr.DAL
         {
             return context.Speeches.Count();
         }
+
+        public void AddSpeech(string speechTitle, string speechBody, ApplicationUser created_by)
+        {
+            Speech new_speech = new Speech { SpeechTitle = null, SpeechBody = null, CreatedBy = null};
+
+        }
+
+        public void TargetDeliveryTimeCalculator(ApplicationUser created_by)
+        {
+            int wpm;
+            if (created_by.UserWPM == 0)
+            {
+                wpm = 130;
+            }
+            else
+            {
+                wpm = created_by.UserWPM;
+            }
+        }
     }
 }
