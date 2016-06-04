@@ -210,6 +210,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\NotFoundException.cs" />
     <Compile Include="DAL\OratrContext.cs" />
     <Compile Include="DAL\OratrRepository.cs" />
     <Compile Include="Global.asax.cs">

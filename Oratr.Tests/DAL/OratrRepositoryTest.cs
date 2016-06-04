@@ -146,7 +146,7 @@ namespace Oratr.Tests.DAL
         }
 
         [TestMethod]
-        public void EnsureICanGetSpecificSpeech()
+        public void RepoEnsureICanGetSpecificSpeech()
         {
             // Arrange
             Speech speech1 = new Speech { SpeechId = 1, SpeechTitle = "some title", SpeechBody = "some body" };
