@@ -21,5 +21,15 @@ namespace Oratr.DAL
         {
             context = _context;
         }
+
+        public List<Speech> GetSpeeches()
+        {
+            return context.Speeches.ToList();
+        }
+
+        public int GetSpeechCount()
+        {
+            return context.Speeches.Count();
+        }
     }
 }
