@@ -9,7 +9,7 @@ namespace Oratr.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Oratr.DAL.OratrContext context)
