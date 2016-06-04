@@ -73,5 +73,49 @@ namespace Oratr.Tests.DAL
         {
             Assert.IsNotNull(Repo);
         }
+
+        [TestMethod]
+        public void RepoEnsureIsUsingContext()
+        {
+            Assert.IsNotNull(Repo.context);
+        }
+
+        [TestMethod]
+        public void RepoEnsureThereAreNoSpeeches()
+        {
+            // Arrange
+            ConnectMocksToDatastore();
+
+            // Act
+            List<Speech> list_of_speeches = Repo.GetSpeeches();
+            List<Speech> expected = new List<Speech>();
+
+            // Assert
+            Assert.AreEqual(expected.Count, list_of_speeches.Count);
+        }
+
+        [TestMethod]
+        public void RepoEnsureSpeechCountIsZero()
+        {
+            // Arrange
+            ConnectMocksToDatastore();
+
+            // Act
+            int expected = 0;
+            int actual = Repo.GetSpeechCount();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RepoEnsureICanAddSpeech()
+        {
+            // Arrange
+            ConnectMocksToDatastore();
+            // Act
+
+            // Assert
+        }
     }
 }
