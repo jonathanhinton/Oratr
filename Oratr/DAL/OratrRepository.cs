@@ -67,4 +67,6 @@ namespace Oratr.DAL
             return speech;
         }
     }
+
+    //next steps, I need a method that will allow me to generate a target delivery time based on user wpm and overall length of the speech. I will most likely have to split the string into an array and count the items in order to get the length, then divide by the user wpm. If user wpm is null, I will divide by 130
 }
