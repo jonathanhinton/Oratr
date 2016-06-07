@@ -41,19 +41,6 @@ namespace Oratr.DAL
 
         }
 
-        public void TargetDeliveryTimeCalculator(ApplicationUser created_by)
-        {
-            int wpm;
-            if (created_by.UserWPM == 0)
-            {
-                wpm = 130;
-            }
-            else
-            {
-                wpm = created_by.UserWPM;
-            }
-        }
-
         public Speech GetSpeech(int _speech_id)
         {
             Speech speech;
@@ -65,6 +52,26 @@ namespace Oratr.DAL
                 throw new NotFoundException();
             }
             return speech;
+        }
+
+        public int CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
+        {
+            char[] delimiterChars = { ' ', ',', '.', '!', '?' };
+            int wpm;
+            if (some_user.UserWPM == 0)
+            {
+                wpm = 130;
+            }
+            else
+            {
+                wpm = some_user.UserWPM;
+            }
+
+            string speech_string = found_speech.SpeechBody;
+            string[] speech_body_array = speech_string.Split(delimiterChars);
+            int speechLength = speech_body_array.Length;
+            return speechLength / wpm;
+            
         }
     }
 
