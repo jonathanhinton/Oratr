@@ -54,7 +54,7 @@ namespace Oratr.DAL
             return speech;
         }
 
-        public int CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
+        public void CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
             char[] delimiterChars = { ' ', ',', '.', '!', '?', ':', ';' };
             int wpm;
@@ -70,8 +70,9 @@ namespace Oratr.DAL
             string speech_string = found_speech.SpeechBody;
             string[] speech_body_array = speech_string.Split(delimiterChars);
             int speechLength = speech_body_array.Length;
-            return speechLength / wpm;
-            
+            double minutesDouble = speechLength / wpm;
+            TimeSpan TargetDeliveryTime = TimeSpan.FromMinutes(minutesDouble);
+            found_speech.TargetDeliveryTime = TargetDeliveryTime;           
         }
     }
 
