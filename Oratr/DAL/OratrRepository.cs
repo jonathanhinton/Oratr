@@ -56,6 +56,7 @@ namespace Oratr.DAL
 
         public void CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
+            // set char array to so as to split the string on spaces, this will ensure better accuracy when calculating wpm
             char[] delimiterChars = { ' ' };
             int wpm;
             if (some_user.UserWPM == 0)
@@ -66,15 +67,18 @@ namespace Oratr.DAL
             {
                 wpm = some_user.UserWPM;
             }
-
+            //get speech string and split so as to find speech length
             string speech_string = found_speech.SpeechBody;
             string[] speech_body_array = speech_string.Split(delimiterChars);
             int speechLength = speech_body_array.Length;
+            
+            // calculate minute double so as to get timespan from minutes method
             double minutesDouble = speechLength / wpm;
             TimeSpan TargetDeliveryTime = TimeSpan.FromMinutes(minutesDouble);
+
+            // set TargetDeliveryTime property
             found_speech.TargetDeliveryTime = TargetDeliveryTime;           
         }
     }
 
-    //next steps, I need a method that will allow me to generate a target delivery time based on user wpm and overall length of the speech. I will most likely have to split the string into an array and count the items in order to get the length, then divide by the user wpm. If user wpm is null, I will divide by 130
 }
