@@ -46,7 +46,7 @@ namespace Oratr.DAL
             Speech speech;
             try
             {
-                speech = context.Speeches.First(p => p.SpeechId == _speech_id);
+                speech = context.Speeches.First(s => s.SpeechId == _speech_id);
             } catch (Exception)
             {
                 throw new NotFoundException();
