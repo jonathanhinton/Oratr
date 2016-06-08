@@ -56,7 +56,7 @@ namespace Oratr.DAL
 
         public int CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
-            char[] delimiterChars = { ' ', ',', '.', '!', '?' };
+            char[] delimiterChars = { ' ', ',', '.', '!', '?', ':', ';' };
             int wpm;
             if (some_user.UserWPM == 0)
             {
