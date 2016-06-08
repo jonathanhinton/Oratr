@@ -182,9 +182,10 @@ namespace Oratr.Tests.DAL
             Speech found_speech = Repo.GetSpeech(2);
             ApplicationUser some_user = new ApplicationUser();
             some_user.UserWPM = 16;
+            Repo.CalculateDeliveryTime(some_user, found_speech);
 
-            int actual = Repo.CalculateDeliveryTime(some_user, found_speech);
-            int expected = 1;
+            TimeSpan actual = found_speech.TargetDeliveryTime;
+            TimeSpan expected = TimeSpan.FromMinutes(1); ;
             // Assert
             Assert.AreEqual(expected, actual);
         }
