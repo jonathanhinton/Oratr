@@ -94,6 +94,12 @@ namespace Oratr.DAL
             context.SaveChanges();
 
         }
+
+        public void CalculateUserWPM(ApplicationUser some_user, string oneMinuteWordCount)
+        {
+            int speechLength = StringLength(oneMinuteWordCount);
+            some_user.UserWPM = speechLength;
+        }
     }
 
 }
