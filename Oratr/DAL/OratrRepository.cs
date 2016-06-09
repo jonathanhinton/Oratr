@@ -84,7 +84,8 @@ namespace Oratr.DAL
             TimeSpan TargetDeliveryTime = TimeSpan.FromMinutes(minutesDouble);
 
             // set TargetDeliveryTime property
-            found_speech.TargetDeliveryTime = TargetDeliveryTime;           
+            found_speech.TargetDeliveryTime = TargetDeliveryTime;
+            context.SaveChanges();           
         }
 
         public void RemoveSpeech(int _speech_id)
@@ -99,6 +100,7 @@ namespace Oratr.DAL
         {
             int speechLength = StringLength(oneMinuteWordCount);
             some_user.UserWPM = speechLength;
+            context.SaveChanges();
         }
     }
 
