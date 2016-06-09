@@ -212,5 +212,21 @@ namespace Oratr.Tests.DAL
             Assert.AreEqual(expected_count, Repo.GetSpeechCount());
 
         }
+
+        [TestMethod]
+        public void RepoEnsureICanCalculateUserWPM()
+        {
+            // Arrange
+            ApplicationUser some_user = new ApplicationUser();
+            some_user.Id = "fake_user_id";
+
+            // Act
+            string oneMinuteWordCount = "this is the result of someone who has just spoken for one minute about a topic that they are intimately familiar with";
+            Repo.CalculateUserWPM(some_user, oneMinuteWordCount);
+            int expected_wpm = 22;
+
+            // Assert
+            Assert.AreEqual(expected_wpm, some_user.UserWPM);
+        }
     }
 }
