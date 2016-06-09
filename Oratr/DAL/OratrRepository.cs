@@ -77,8 +77,7 @@ namespace Oratr.DAL
             }
             //get speech string and split so as to find speech length
             string speech_string = found_speech.SpeechBody;
-            string[] speech_body_array = speech_string.Split(delimiterChars);
-            int speechLength = speech_body_array.Length;
+            int speechLength = StringLength(speech_string);
             
             // calculate minute double so as to get timespan from minutes method
             double minutesDouble = speechLength / wpm;
