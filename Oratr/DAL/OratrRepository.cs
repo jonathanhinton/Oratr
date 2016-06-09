@@ -54,6 +54,14 @@ namespace Oratr.DAL
             return speech;
         }
 
+        public int StringLength(string some_string)
+        {
+            char[] delimiterChars = { ' ' };
+            string[] some_string_array = some_string.Split(delimiterChars);
+            int stringLength = some_string_array.Length;
+            return stringLength;
+        }
+
         public void CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
             // set char array to so as to split the string on spaces, this will ensure better accuracy when calculating wpm
