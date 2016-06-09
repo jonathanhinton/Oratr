@@ -189,5 +189,44 @@ namespace Oratr.Tests.DAL
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void RepoEnsureICanDeleteASpeech()
+        {
+            // Arrange
+            Speech speech1 = new Speech { SpeechId = 1, SpeechTitle = "Declaration of Independence", SpeechBody = "When in the course of human events." };
+            Speech speech2 = new Speech { SpeechId = 2, SpeechTitle = "Gettysburg Address", SpeechBody = "Four score and seven years ago, our fathers brought forth on this continent a new nation." };
+            Speech speech3 = new Speech { SpeechId = 3, SpeechTitle = "some title", SpeechBody = "some body" };
+            speech_datasource.Add(speech1);
+            speech_datasource.Add(speech2);
+            speech_datasource.Add(speech3);
+
+            ConnectMocksToDatastore();
+            mock_speech_table.Setup(m => m.Remove(It.IsAny<Speech>())).Callback((Speech speech) => speech_datasource.Remove(speech));
+
+            // Act
+            Repo.RemoveSpeech(3);
+
+            // Assert
+            int expected_count = 2;
+            Assert.AreEqual(expected_count, Repo.GetSpeechCount());
+
+        }
+
+        [TestMethod]
+        public void RepoEnsureICanCalculateUserWPM()
+        {
+            // Arrange
+            ApplicationUser some_user = new ApplicationUser();
+            some_user.Id = "fake_user_id";
+
+            // Act
+            string oneMinuteWordCount = "this is the result of someone who has just spoken for one minute about a topic that they are intimately familiar with";
+            Repo.CalculateUserWPM(some_user, oneMinuteWordCount);
+            int expected_wpm = 22;
+
+            // Assert
+            Assert.AreEqual(expected_wpm, some_user.UserWPM);
+        }
     }
 }
