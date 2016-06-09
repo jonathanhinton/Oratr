@@ -85,6 +85,7 @@ namespace Oratr.DAL
             Speech speech = GetSpeech(_speech_id);
             context.Speeches.Remove(speech);
             context.SaveChanges();
+
         }
     }
 
