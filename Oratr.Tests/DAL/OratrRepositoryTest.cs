@@ -202,6 +202,7 @@ namespace Oratr.Tests.DAL
             speech_datasource.Add(speech3);
 
             ConnectMocksToDatastore();
+            mock_speech_table.Setup(m => m.Remove(It.IsAny<Speech>())).Callback((Speech speech) => speech_datasource.Remove(speech));
 
             // Act
             Repo.RemoveSpeech(3);
