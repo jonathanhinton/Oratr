@@ -56,6 +56,7 @@ namespace Oratr.DAL
 
         public int StringLength(string some_string)
         {
+            // set char array to so as to split the string on spaces, this will ensure better accuracy when calculating wpm
             char[] delimiterChars = { ' ' };
             string[] some_string_array = some_string.Split(delimiterChars);
             int stringLength = some_string_array.Length;
@@ -64,8 +65,6 @@ namespace Oratr.DAL
 
         public void CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
-            // set char array to so as to split the string on spaces, this will ensure better accuracy when calculating wpm
-            char[] delimiterChars = { ' ' };
             int wpm;
             if (some_user.UserWPM == 0)
             {
@@ -77,21 +76,13 @@ namespace Oratr.DAL
             }
             //get speech string and split so as to find speech length
             string speech_string = found_speech.SpeechBody;
-<<<<<<< HEAD
-            string[] speech_body_array = speech_string.Split(delimiterChars);
-            int speechLength = speech_body_array.Length;
-=======
             int speechLength = StringLength(speech_string);
->>>>>>> tests
-            
+
             // calculate minute double so as to get timespan from minutes method
             double minutesDouble = speechLength / wpm;
             TimeSpan TargetDeliveryTime = TimeSpan.FromMinutes(minutesDouble);
 
             // set TargetDeliveryTime property
-<<<<<<< HEAD
-            found_speech.TargetDeliveryTime = TargetDeliveryTime;           
-=======
             found_speech.TargetDeliveryTime = TargetDeliveryTime;
             context.SaveChanges();           
         }
@@ -109,7 +100,6 @@ namespace Oratr.DAL
             int speechLength = StringLength(oneMinuteWordCount);
             some_user.UserWPM = speechLength;
             context.SaveChanges();
->>>>>>> tests
         }
     }
 
