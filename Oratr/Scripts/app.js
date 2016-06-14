@@ -1,4 +1,7 @@
-﻿//construct recognition object
+﻿var $startRecorder = $("#startRecording");
+var $stopRecorder = $("#stopRecording");
+var $theSpeechText = $("#theSpeechText");
+//construct recognition object
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 // var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList; <-- I will implement this later
 var recognition = new SpeechRecognition();
@@ -24,9 +27,20 @@ recognition.onresult = function (event) {
 
     for (var i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
-            console.log("final results: " + event.results[i][0].transcript);
+            $theSpeechText.append(event.results[i][0].transcript);
         } else {
-            console.log("interim result: " + event.results[i][0].transcript);
+            $theSpeechText.append(event.results[i][0].transcript);
         }
     } //end for loop
 }; //end onresult function
+
+
+$startRecorder.on('click', function () {
+    console.log("recording started");
+    recognition.start();
+});
+
+$stopRecorder.on('click', function () {
+    console.log("recording ended");
+    recognition.stop();
+});
