@@ -1,6 +1,6 @@
 ﻿var $startRecorder = $("#startRecording");
 var $stopRecorder = $("#stopRecording");
-var $theSpeechText = $("#theSpeechText");
+var $theSpeechText = $("#theSpeechTest");
 //construct recognition object
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 // var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList; <-- I will implement this later
@@ -21,15 +21,17 @@ recognition.onend = function () {
 
 recognition.onresult = function (event) {
     if (typeof (event.results) === 'undefined') {
+        console.log("undefined speech");
         recognition.stop();
         return;
     }
 
     for (var i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
-            $theSpeechText.append(event.results[i][0].transcript);
+            console.log("I think you said: " + event.results[i][0].transcript);
+            $theSpeechText.append("<b>" + event.results[i][0].transcript + "</b>");
         } else {
-            $theSpeechText.append(event.results[i][0].transcript);
+            console.log("interim result: " + event.results[i][0].transcript);
         }
     } //end for loop
 }; //end onresult function
