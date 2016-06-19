@@ -28,7 +28,7 @@
         for (var i = event.resultIndex; i < event.results.length; i++) {
             if (event.results[i].isFinal) {
                 console.log("I think you said: " + event.results[i][0].transcript);
-                $theSpeechText.append("<b>" + event.results[i][0].transcript + "</b>");
+                //$theSpeechText.append("<b>" + event.results[i][0].transcript + "</b>");
             } else {
                 console.log("interim result: " + event.results[i][0].transcript);
             }

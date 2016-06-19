@@ -2,15 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
+<div class="row" ng-controller="speechCtrl as SpeechCtrl">
     <p>Here's how we know angular works 1 + 1 = {{1+1}}</p>
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p id="theSpeechTest">
             
         </p>
-        <button class="btn-success" id="startRecording">start talking</button>
-        <button class="btn-danger" id="stopRecording">stop talking</button>
+        <button ng-click="SpeechCtrl.startSpeech()" class="btn-success" id="startRecording">start talking</button>
+        <button ng-click="SpeechCtrl.stopSpeech()"class="btn-danger" id="stopRecording">stop talking</button>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
 </div>
