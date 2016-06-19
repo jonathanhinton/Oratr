@@ -12,5 +12,7 @@ app.controller("speechCtrl",
 
          self.stopSpeech = function (e) {
              speechRecog.stop();
+             console.log("speech stopped");
          }
+
 }]);
