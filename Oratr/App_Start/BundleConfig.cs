@@ -24,7 +24,9 @@ namespace Oratr
                       "~/Scripts/respond.js"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
-                      "~/Scripts/app.js"
+                      "~/Scripts/app.js",
+                      "~/Scripts/countdown.js",
+                      "~/Scripts/speechRecog.js"
                 ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
