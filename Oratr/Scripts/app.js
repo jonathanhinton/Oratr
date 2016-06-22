@@ -8,7 +8,7 @@ app.controller("speechCtrl",
 
          self.startSpeech = function (e) {
              speechRecog.start();
-             countdown.startTimer();
+             countdown.startTimer(1000);
          }
 
          self.stopSpeech = function (e) {
