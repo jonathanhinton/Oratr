@@ -9,11 +9,13 @@
     var result = [];
     var resultString;
     var speechEl = angular.element(document.getElementById('theSpeechTest'));
+    var langSelect = angular.element(document.getElementById('languageSelector'));
+    //console.log(langSelect.val());
 
     //define parameters
     recognition.continuous = true;
     recognition.interimResults = true;
-    recognition.lang = "en-US";
+    recognition.lang="en-US"
     recognition.maxAlternatives = 1;
 
     recognition.onstart = function () {
@@ -50,8 +52,24 @@
     function stopRecognition() {
         recognition.stop();
     }
+    function langToggle() {
+        if(langSelect.val() === "English")
+        {
+            recognition.lang = "ru";
+            langSelect.html("Russian");
+            langSelect.attr("value", "Russian");
+            //console.log("now russian");
+        } else
+        {
+            recognition.lang = "en-US";
+            langSelect.html("English")
+            langSelect.attr("value", "English");
+            //console.log("now English");
+        }
+    }
     return {
         start: startRecognition,
-        stop: stopRecognition
+        stop: stopRecognition,
+        langToggle : langToggle
     }
 }]);

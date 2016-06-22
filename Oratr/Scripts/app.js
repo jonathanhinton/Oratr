@@ -17,4 +17,9 @@ app.controller("speechCtrl",
              console.log("speech stopped");
          }
 
+         self.toggleLang = function (e) {
+             //console.log("click");
+             speechRecog.langToggle();
+         }
+
 }]);
