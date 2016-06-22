@@ -58,7 +58,7 @@
             recognition.lang = "ru";
             langSelect.html("Russian");
             langSelect.attr("value", "Russian");
-            //console.log("now russian");
+            //console.log("now Russian");
         } else
         {
             recognition.lang = "en-US";

@@ -18,11 +18,11 @@
         countdown[0].innerHTML = res.toPrecision(count.toString().length) + " secs";
     }
 
-    function startTimer(userTime) {
-        console.log("Timer Started");
+    function startTimer() {
+        //console.log("Timer Started");
         clearInterval(counter);
         counter = setInterval(timer, 10);
-        displayCount(userTime);
+        displayCount(count);
     }
 
     function clearTimer() {
@@ -30,7 +30,7 @@
     }
 
     function resetTimer() {
-        console.log("Timer reset");
+        //console.log("Timer reset");
         clearInterval(counter);
         count = initial;
         displayCount(count);
