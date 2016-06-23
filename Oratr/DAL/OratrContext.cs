@@ -11,5 +11,7 @@ namespace Oratr.DAL
     {
         public virtual DbSet<Speech> Speeches { get; set; }
         public virtual DbSet<Result> Results { get; set; }
+
+        public System.Data.Entity.DbSet<Oratr.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
