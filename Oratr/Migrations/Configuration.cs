@@ -1,5 +1,6 @@
 namespace Oratr.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,12 @@ namespace Oratr.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Speeches.AddOrUpdate(
+                speech => speech.SpeechTitle,
+                new Speech { SpeechId = 1, SpeechTitle = "Declaration of Independence", SpeechBody = "When in the course of human events." },
+                new Speech { SpeechId = 2, SpeechTitle = "Gettysburg Address", SpeechBody = "Four score and seven years ago, our fathers brought forth on this continent a new nation." },
+                new Speech { SpeechId = 3, SpeechTitle = "Intro to Oratr", SpeechBody = "Oratr is a web app focused on improving a users public speaking ability." }
+                );
         }
     }
 }

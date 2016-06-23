@@ -34,6 +34,7 @@ namespace Oratr.DAL
 
         public void AddSpeech(string speechTitle, string speechBody, ApplicationUser created_by)
         {
+
             //these fields need to be fully fleshed out
             Speech new_speech = new Speech
             {

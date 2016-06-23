@@ -23,6 +23,7 @@ namespace Oratr.Controllers
         public ActionResult Details(int id)
         {
             Speech found_speech = Repo.GetSpeech(id);
+
             if (found_speech == null)
             {
                 return RedirectToAction("Index");

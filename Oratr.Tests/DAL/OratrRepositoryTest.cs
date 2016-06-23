@@ -172,7 +172,7 @@ namespace Oratr.Tests.DAL
             // Arrange
             Speech speech1 = new Speech { SpeechId = 1, SpeechTitle = "Declaration of Independence", SpeechBody = "When in the course of human events." };
             Speech speech2 = new Speech { SpeechId = 2, SpeechTitle = "Gettysburg Address", SpeechBody = "Four score and seven years ago, our fathers brought forth on this continent a new nation." };
-            Speech speech3 = new Speech { SpeechId = 3, SpeechTitle = "some title", SpeechBody = "some body" };
+            Speech speech3 = new Speech { SpeechId = 3, SpeechTitle = "Intro to Oratr", SpeechBody = "Oratr is a web app focused on improving a users public speaking ability." };
             speech_datasource.Add(speech1);
             speech_datasource.Add(speech2);
             speech_datasource.Add(speech3);
