@@ -10,7 +10,7 @@ namespace Oratr.Models
         public int SpeechId { get; set; }
         public string SpeechTitle { get; set; }
         public string SpeechBody { get; set; }
-        public string[] SpokenBody { get; set; }
+        public string SpokenBody { get; set; }
         public TimeSpan TargetDeliveryTime { get; set; }
 
         public ApplicationUser CreatedBy { get; set; }
