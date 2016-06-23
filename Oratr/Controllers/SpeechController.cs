@@ -46,6 +46,12 @@ namespace Oratr.Controllers
             }
         }
 
+        // GET: Speech/Practice
+        public ActionResult Practice()
+        {
+            return View();
+        }
+
         // GET: Speech/Create
         public ActionResult Create()
         {
