@@ -41,6 +41,12 @@ namespace Oratr.DAL
 
         }
 
+        public ApplicationUser GetUser(string user_id)
+        {
+            return context.Users.FirstOrDefault(i => i.Id == user_id);
+        }
+    
+
         public Speech GetSpeech(int _speech_id)
         {
             Speech speech;

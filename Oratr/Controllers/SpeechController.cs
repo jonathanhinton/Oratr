@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Oratr.DAL;
+using Oratr.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace Oratr.Controllers
 {
     public class SpeechController : Controller
     {
+        private OratrRepository Repo = new OratrRepository();
         // GET: Speech
         public ActionResult Index()
         {
@@ -32,8 +37,11 @@ namespace Oratr.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                string Title = collection.Get("SpeechTitle");
 
+                string user_id = User.Identity.GetUserId();
+                ApplicationUser user = Repo.GetUser(user_id);
+                
                 return RedirectToAction("Index");
             }
             catch

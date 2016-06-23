@@ -1,4 +1,4 @@
-﻿app.service('speechRecognition', ['$http', function($http){
+﻿app.service('speechRecognition', [function(){
 
     //construct recognition object
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -47,10 +47,12 @@
         //return resultString;
     }; //end onresult function
     function startRecognition() {
+        console.log("start");
         recognition.start();
     }
 
     function stopRecognition() {
+        console.log("stop");
         recognition.stop();
     }
 

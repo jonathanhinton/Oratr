@@ -10,7 +10,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal" ng-controller="speechCtrl as SpeechCtrl">
+    <div class="form-horizontal">
         <h4>Speech</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -25,16 +25,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SpeechBody, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SpeechBody, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.SpeechBody, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SpeechBody, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TargetDeliveryTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TargetDeliveryTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TargetDeliveryTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
