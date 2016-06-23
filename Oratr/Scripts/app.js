@@ -22,4 +22,29 @@ app.controller("speechCtrl",
              speechRecog.langToggle();
          }
 
+         self.clearSpeech = function (e) {
+             speechRecog.clearSpeech();
+             $("#theSpeechTest").html('');
+         }
+
+         //Edit the text...for future use.
+         function speechClicked() {
+             var speechText = $("#theSpeechTest").html();
+             var editableText = $("<textarea id='textToChange'/>")
+             editableText.val(speechText);
+             $("#theSpeechTest").replaceWith(editableText);
+             editableText.focus();
+             editableText.blur(editableTextBlurred);
+         }
+
+         function editableTextBlurred() {
+             var html = $("#textToChange").val();
+             var viewableText = $("<div id='theSpeechTest'>");
+             viewableText.html(html);
+             $("#textToChange").replaceWith(viewableText);
+             $(viewableText).click(speechClicked);
+         }
+
+         $("#theSpeechTest").click(speechClicked);
+
 }]);

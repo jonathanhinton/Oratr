@@ -1,4 +1,4 @@
-﻿app.service('speechRecognition', [function(){
+﻿app.service('speechRecognition', ['$http', function($http){
 
     //construct recognition object
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -8,8 +8,8 @@
     //create empty array to store results of final speech
     var result = [];
     var resultString;
-    var speechEl = angular.element(document.getElementById('theSpeechTest'));
-    var langSelect = angular.element(document.getElementById('languageSelector'));
+    var speechEl = $("#theSpeechTest");
+    var langSelect = $("#languageSelector");
     //console.log(langSelect.val());
 
     //define parameters
@@ -27,6 +27,7 @@
     };
 
     recognition.onresult = function (event) {
+        $("#theSpeechTest").html('');
         if (typeof (event.results) === 'undefined') {
             console.log("undefined speech");
             recognition.stop();
@@ -43,15 +44,24 @@
             }
         } //end for loop
         resultString = result.join(' ');
-        speechEl.html(resultString);
-        return resultString;
+        $("#theSpeechTest").html(resultString);
+        //return resultString;
     }; //end onresult function
     function startRecognition() {
         recognition.start();
     }
+
     function stopRecognition() {
         recognition.stop();
     }
+
+    function clearSpeech() {
+        result = [];
+        resultString = '';
+        speechEl.html(resultString);
+        
+    }
+
     function langToggle() {
         if(langSelect.val() === "English")
         {
@@ -70,6 +80,7 @@
     return {
         start: startRecognition,
         stop: stopRecognition,
+        clearSpeech : clearSpeech,
         langToggle : langToggle
     }
 }]);
