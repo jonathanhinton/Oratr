@@ -31,6 +31,8 @@ namespace Oratr.Controllers
             return View();
         }
 
+        // POST: Speech/SetWPM
+
         // GET: Speech/Details/5
         public ActionResult Details(int id)
         {
