@@ -13,10 +13,22 @@ namespace Oratr.Controllers
     public class SpeechController : Controller
     {
         private OratrRepository Repo = new OratrRepository();
+        // GET: Speech/Speeches
+        public ActionResult Speeches()
+        {
+            return View(Repo.GetSpeeches());
+        }
+
         // GET: Speech
         public ActionResult Index()
         {
-            return View(Repo.GetSpeeches());
+            return View();
+        }
+
+        // GET: Speech/SetWPM
+        public ActionResult SetWPM()
+        {
+            return View();
         }
 
         // GET: Speech/Details/5
