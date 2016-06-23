@@ -10,7 +10,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="form-horizontal" ng-controller="speechCtrl as SpeechCtrl">
         <h4>Speech</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
