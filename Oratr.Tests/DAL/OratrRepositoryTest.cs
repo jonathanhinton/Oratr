@@ -184,8 +184,8 @@ namespace Oratr.Tests.DAL
             some_user.UserWPM = 16;
             Repo.CalculateDeliveryTime(some_user, found_speech);
 
-            TimeSpan actual = found_speech.TargetDeliveryTime;
             TimeSpan expected = TimeSpan.FromMinutes(1); ;
+            TimeSpan actual = found_speech.TargetDeliveryTime;
             // Assert
             Assert.AreEqual(expected, actual);
         }
