@@ -11,6 +11,7 @@
 @foreach (var item in Model)
 {
     <h4>@item.SpeechTitle</h4>
+    @Html.ActionLink("View Details", "Details", new { id = @item.SpeechId})
 }
 
 <div>@Html.ActionLink("Go Back", "Index")</div>

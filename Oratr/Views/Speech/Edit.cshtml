@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SpeechBody, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.SpeechBody, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.SpeechBody, new { htmlAttributes = new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SpeechBody, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,5 +57,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Speeches")
 </div>
