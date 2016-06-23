@@ -6,9 +6,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Speeches</h2>
+<h2>Here's an option or two</h2>
 
-@foreach (var item in Model)
-{
-    <h4>@item.SpeechTitle</h4>
-}
+
+<div>
+    @Html.ActionLink("Back to List", "Speeches")
+</div>
+<div>
+    @Html.ActionLink("Set WPM", "Index", "Home")
+</div>
