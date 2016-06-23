@@ -19,8 +19,13 @@ namespace Oratr.Controllers
             return View();
         }
 
-        // GET: Speech
-        public ActionResult Speeches()
+        public ActionResult SetWPM()
+        {
+            return View();
+        }
+
+        // GET: Speech/List
+        public ActionResult List()
         {
             return View(Repo.GetSpeeches());
         }
