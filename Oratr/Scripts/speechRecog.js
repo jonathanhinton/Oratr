@@ -8,7 +8,6 @@
     //create empty array to store results of final speech
     var result = [];
     var resultString;
-    var speechEl = $("#theSpeechTest");
     var langSelect = $("#languageSelector");
     //console.log(langSelect.val());
 
@@ -58,8 +57,6 @@
     function clearSpeech() {
         result = [];
         resultString = '';
-        speechEl.html(resultString);
-        
     }
 
     function langToggle() {
