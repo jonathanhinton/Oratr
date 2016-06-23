@@ -35,7 +35,12 @@ namespace Oratr.DAL
         public void AddSpeech(string speechTitle, string speechBody, ApplicationUser created_by)
         {
             //these fields need to be fully fleshed out
-            Speech new_speech = new Speech { SpeechTitle = speechTitle, SpeechBody = speechBody, CreatedBy = created_by};
+            Speech new_speech = new Speech
+            {
+                SpeechTitle = speechTitle,
+                SpeechBody = speechBody,
+                CreatedBy = created_by
+            };
             context.Speeches.Add(new_speech);
             context.SaveChanges();
 
@@ -71,6 +76,7 @@ namespace Oratr.DAL
 
         public void CalculateDeliveryTime(ApplicationUser some_user, Speech found_speech)
         {
+            
             int wpm;
             if (some_user.UserWPM == 0)
             {
@@ -88,9 +94,9 @@ namespace Oratr.DAL
             double minutesDouble = speechLength / wpm;
             TimeSpan TargetDeliveryTime = TimeSpan.FromMinutes(minutesDouble);
 
-            // set TargetDeliveryTime property
+            //set TargetDeliveryTimeProperty
             found_speech.TargetDeliveryTime = TargetDeliveryTime;
-            context.SaveChanges();           
+            context.SaveChanges();
         }
 
         public void RemoveSpeech(int _speech_id)

@@ -16,18 +16,27 @@ namespace Oratr.Controllers
         // GET: Speech
         public ActionResult Index()
         {
-            return View();
+            return View(Repo.GetSpeeches());
         }
 
         // GET: Speech/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Speech found_speech = Repo.GetSpeech(id);
+            if (found_speech == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(found_speech);
+            }
         }
 
         // GET: Speech/Create
         public ActionResult Create()
         {
+            ViewBag.Error = false;
             return View();
         }
 
@@ -38,9 +47,15 @@ namespace Oratr.Controllers
             try
             {
                 string Title = collection.Get("SpeechTitle");
+                string Body = collection.Get("SpeechBody");
 
                 string user_id = User.Identity.GetUserId();
                 ApplicationUser user = Repo.GetUser(user_id);
+
+                if(user != null)
+                {
+                    Repo.AddSpeech(Title, Body, user);
+                }
                 
                 return RedirectToAction("Index");
             }
