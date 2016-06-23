@@ -306,6 +306,9 @@
     <Content Include="Views\Speech\Index.cshtml" />
     <Content Include="Views\Speech\Speeches.cshtml" />
     <Content Include="Views\Speech\SetWPM.cshtml" />
+    <Content Include="Views\Speech\Details.cshtml" />
+    <Content Include="Views\Speech\Edit.cshtml" />
+    <Content Include="Views\Speech\Practice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

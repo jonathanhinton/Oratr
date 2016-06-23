@@ -1,0 +1,22 @@
+﻿@model Oratr.Models.Result
+<!--2 actions on this page: practice/view results (modal), go back-->
+@{
+    ViewBag.Title = "Practice";
+}
+
+<h2>Practice</h2>
+
+<div class="row" ng-controller="speechCtrl as SpeechCtrl">
+    <p>Here's how we know angular works 1 + 1 = {{1+1}}</p>
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <div id="theSpeechTest">
+
+        </div>
+        <div id="countdown">60.00</div>
+        <button ng-click="SpeechCtrl.startSpeech()" class="btn-success" id="startRecording">start talking</button>
+        <button ng-click="SpeechCtrl.stopSpeech()" class="btn-danger" id="stopRecording">stop talking</button>
+        <button ng-click="SpeechCtrl.clearSpeech()" class="btn-warning" id="clearSpeech">Clear Speech</button>
+        <button value="English" ng-click="SpeechCtrl.toggleLang()" class="btn-primary" id="languageSelector">English</button>
+    </div>
+</div>

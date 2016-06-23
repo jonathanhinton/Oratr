@@ -1,0 +1,50 @@
+﻿@model Oratr.Models.Speech
+
+@{
+    ViewBag.Title = "Details";
+}
+<!--3 actions on this page: go back to list of speeches, edit speech, practice speech-->
+<h2>Details</h2>
+
+<div>
+    <h4>Speech</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeechTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeechTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpeechBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpeechBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpokenBody)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpokenBody)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetDeliveryTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TargetDeliveryTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SpeechId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
