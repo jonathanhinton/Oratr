@@ -26,5 +26,10 @@ namespace Oratr.Controllers
 
             return View();
         }
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Your Create Page";
+            return View();
+        }
     }
 }
