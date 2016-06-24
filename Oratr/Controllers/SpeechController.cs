@@ -37,6 +37,8 @@ namespace Oratr.Controllers
         public ActionResult Details(int id)
         {
             Speech found_speech = Repo.GetSpeech(id);
+            string user_id = User.Identity.GetUserId();
+            ApplicationUser user = Repo.GetUser(user_id);
 
             if (found_speech == null)
             {
@@ -44,6 +46,7 @@ namespace Oratr.Controllers
             }
             else
             {
+                Repo.CalculateDeliveryTime(user, found_speech);
                 return View(found_speech);
             }
         }
