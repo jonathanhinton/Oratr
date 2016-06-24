@@ -100,18 +100,13 @@ namespace Oratr.Controllers
 
         // POST: Speech/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "SpeechId,SpeechTitle,SpeechBody")]Speech speech_to_edit)
         {
-            try
+            if(ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                Repo.EditSpeech(speech_to_edit);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Speeches");
         }
 
         // GET: Speech/Delete/5

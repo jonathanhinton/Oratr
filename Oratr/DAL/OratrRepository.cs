@@ -100,6 +100,12 @@ namespace Oratr.DAL
             context.SaveChanges();
         }
 
+        public void EditSpeech(Speech speech_to_edit)
+        {
+            context.Entry(speech_to_edit).State = System.Data.Entity.EntityState.Modified;
+            context.SaveChanges();
+        }
+
         public void RemoveSpeech(int _speech_id)
         {
             Speech speech = GetSpeech(_speech_id);
