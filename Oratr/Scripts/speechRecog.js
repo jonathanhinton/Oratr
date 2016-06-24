@@ -9,6 +9,7 @@
     var result = [];
     var resultString;
     var langSelect = $("#languageSelector");
+    var countdownDiv = $("#countdown");
     //console.log(langSelect.val());
 
     //define parameters

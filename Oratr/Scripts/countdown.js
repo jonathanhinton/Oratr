@@ -1,4 +1,5 @@
 ﻿app.service('countdown', [function () {
+    var countdown = $("#countdown");
     var initial = 6000;
     var count = initial;
     var counter; //10 will  run it every 100th of a second
@@ -14,7 +15,6 @@
 
     function displayCount(count) {
         var res = count / 100;
-        var countdown = angular.element(document.querySelector("#countdown"));
         countdown[0].innerHTML = res.toPrecision(count.toString().length) + " secs";
     }
 

@@ -30,7 +30,7 @@ app.controller("speechCtrl",
          //Edit the text...for future use.
          function speechClicked() {
              var speechText = $("#theSpeechTest").html();
-             var editableText = $("<textarea id='textToChange'/>")
+             var editableText = $("<textarea id='textToChange'></textarea>")
              editableText.val(speechText);
              $("#theSpeechTest").replaceWith(editableText);
              editableText.focus();
@@ -39,7 +39,7 @@ app.controller("speechCtrl",
 
          function editableTextBlurred() {
              var html = $("#textToChange").val();
-             var viewableText = $("<div id='theSpeechTest'>");
+             var viewableText = $("<div id='theSpeechTest'></div>");
              viewableText.html(html);
              $("#textToChange").replaceWith(viewableText);
              $(viewableText).click(speechClicked);
