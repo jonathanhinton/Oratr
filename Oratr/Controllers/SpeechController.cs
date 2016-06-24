@@ -78,7 +78,7 @@ namespace Oratr.Controllers
                     Repo.AddSpeech(Title, Body, user);
                 }
                 
-                return RedirectToAction("Index");
+                return RedirectToAction("Speeches");
             }
             catch
             {
