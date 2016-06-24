@@ -89,7 +89,13 @@ namespace Oratr.Controllers
         // GET: Speech/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Speech found_speech = Repo.GetSpeech(id);
+            if (found_speech == null)
+            {
+
+                RedirectToAction("Speeches");
+            }
+            return View(found_speech);
         }
 
         // POST: Speech/Edit/5
