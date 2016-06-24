@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
-<!--3 actions on this page: go back to list of speeches, edit speech, practice speech-->
+<!--FUNCTIONAL-->
 <h2>Details</h2>
 
 <div>
@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.SpeechTitle)
+            Title of Speech
         </dt>
 
         <dd>
@@ -19,19 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SpeechBody)
+            Body of Speech
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.SpeechBody)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SpokenBody)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SpokenBody)
         </dd>
 
         <dt>
@@ -47,5 +39,5 @@
 <p>
     @Html.ActionLink("Practice", "Practice")
     @Html.ActionLink("Edit", "Edit", new { id = Model.SpeechId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Speeches")
 </p>
