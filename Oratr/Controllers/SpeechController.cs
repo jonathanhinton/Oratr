@@ -111,7 +111,12 @@ namespace Oratr.Controllers
         // GET: Speech/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Speech found_speech = Repo.GetSpeech(id);
+            if (found_speech != null)
+            {
+                Repo.RemoveSpeech(id);
+            }
+            return RedirectToAction("Speeches");
         }
 
         // POST: Speech/Delete/5
