@@ -32,6 +32,16 @@ namespace Oratr.Controllers
         }
 
         // POST: Speech/SetWPM
+        [HttpPost]
+        public ActionResult SetWPM(string wpm_test)
+        {
+            string user_id = User.Identity.GetUserId();
+            ApplicationUser user = Repo.GetUser(user_id);
+
+            Repo.CalculateUserWPM(user, wpm_test);
+
+            return RedirectToAction("Index");
+        }
 
         // GET: Speech/Details/5
         public ActionResult Details(int id)

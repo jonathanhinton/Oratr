@@ -3,8 +3,9 @@
 app.controller("speechCtrl",
     ['countdown',
      'speechRecognition',
-     function (countdown, speechRecog) {
+     function (countdown, speechRecog, $http) {
          var self = this;
+         var speechDiv = $("#theSpeechTest");
 
          self.startSpeech = function (e) {
              speechRecog.start();
@@ -25,6 +26,19 @@ app.controller("speechCtrl",
          self.clearSpeech = function (e) {
              speechRecog.clearSpeech();
              $("#theSpeechTest").html('');
+         }
+
+         var userString = speechDiv.html();
+
+         self.postUserText = function () {
+             console.log(userString);
+             $http.post('/Speech/SetWPM/' + self.userString, {})
+             .error(function () {
+                 alert('failure');
+             })
+             .success(function () {
+                 alert('success');
+             });
          }
 
          //Edit the text...for future use.

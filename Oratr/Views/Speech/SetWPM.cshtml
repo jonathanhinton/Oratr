@@ -16,6 +16,7 @@
         <button ng-click="SpeechCtrl.stopSpeech()" class="btn-danger" id="stopRecording">stop talking</button>
         <button ng-click="SpeechCtrl.clearSpeech()" class="btn-warning" id="clearSpeech">Clear Speech</button>
         <button value="English" ng-click="SpeechCtrl.toggleLang()" class="btn-primary" id="languageSelector">English</button>
+        <button class="btn-success" ng-click="SpeechCtrl.postUserText()">Save WPM</button>
     </div>
     @Html.ActionLink("Go Back", "Index")
 </div>
