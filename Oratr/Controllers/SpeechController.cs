@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Oratr.DAL;
 using Oratr.Models;
 using Microsoft.AspNet.Identity;
-
+using System.Web.Http.Description;
 
 namespace Oratr.Controllers
 {
@@ -32,6 +32,7 @@ namespace Oratr.Controllers
         }
 
         // POST: Speech/SetWPM
+        [ResponseType(typeof(void))]
         [HttpPost]
         public ActionResult SetWPM(string wpm_test)
         {

@@ -4,7 +4,7 @@
 }
 <!-- Must be able to set userWPM from here and go back to list of speeches-->
 <h2>Set Personal WPM</h2>
-<p>Talk for 60 seconds about a topic you are familiar with.  A vacation, a dream, a hobby...anything.</p>
+<h4>Talk for 60 seconds about a topic you are familiar with.  A vacation, a dream, a hobby...anything.</h4>
 
 <div class="row" ng-controller="speechCtrl as SpeechCtrl">
     <div class="col-md-4">
@@ -16,7 +16,7 @@
         <button ng-click="SpeechCtrl.stopSpeech()" class="btn-danger" id="stopRecording">stop talking</button>
         <button ng-click="SpeechCtrl.clearSpeech()" class="btn-warning" id="clearSpeech">Clear Speech</button>
         <button value="English" ng-click="SpeechCtrl.toggleLang()" class="btn-primary" id="languageSelector">English</button>
-        <button class="btn-success" ng-click="SpeechCtrl.postUserText()">Save WPM</button>
+        <!--<button disabled class="btn-success" ng-click="SpeechCtrl.postUserText()">Save WPM</button>-->
     </div>
     @Html.ActionLink("Go Back", "Index")
 </div>

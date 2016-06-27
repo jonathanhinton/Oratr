@@ -26,7 +26,7 @@
         //again visible feedback goes here
     };
 
-    recognition.onresult = function (event) {
+    recognition.onresult = function (event) { 
         $("#theSpeechTest").html('');
         if (typeof (event.results) === 'undefined') {
             console.log("undefined speech");

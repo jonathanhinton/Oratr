@@ -3,9 +3,9 @@
 app.controller("speechCtrl",
     ['countdown',
      'speechRecognition',
+     '$http',
      function (countdown, speechRecog, $http) {
          var self = this;
-         var speechDiv = $("#theSpeechTest");
 
          self.startSpeech = function (e) {
              speechRecog.start();
@@ -28,16 +28,18 @@ app.controller("speechCtrl",
              $("#theSpeechTest").html('');
          }
 
-         var userString = speechDiv.html();
-
          self.postUserText = function () {
-             console.log(userString);
-             $http.post('/Speech/SetWPM/' + self.userString, {})
-             .error(function () {
-                 alert('failure');
-             })
-             .success(function () {
-                 alert('success');
+             var speechText = $("#theSpeechTest").html();
+             var userString = {
+                 stringText: speechText
+             }
+             console.log(speechText);
+             $http({
+                 method: 'POST',
+                 data: userString,
+                 url: '/Speech/SetWPM'
+             }).then(function successCallback(response) {
+             }, function errorCallback(response) {
              });
          }
 
