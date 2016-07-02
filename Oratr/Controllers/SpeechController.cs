@@ -16,7 +16,30 @@ namespace Oratr.Controllers
         // GET: Speech
         public ActionResult Index()
         {
+<<<<<<< Updated upstream
             return View(Repo.GetSpeeches());
+=======
+            return View();
+        }
+
+        // GET: Speech/SetWPM
+        public ActionResult SetWPM()
+        {
+            return View();
+        }
+
+        // POST: Speech/SetWPM
+        [ResponseType(typeof(void))]
+        [HttpPost]
+        public ActionResult SetWPM(object wpm_test)
+        {
+            string user_id = User.Identity.GetUserId();
+            ApplicationUser user = Repo.GetUser(user_id);
+            string wpm = wpm_test.ToString();
+            Repo.CalculateUserWPM(user, wpm);
+
+            return RedirectToAction("Index");
+>>>>>>> Stashed changes
         }
 
         // GET: Speech/Details/5

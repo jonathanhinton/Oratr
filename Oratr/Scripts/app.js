@@ -27,6 +27,25 @@ app.controller("speechCtrl",
              $("#theSpeechTest").html('');
          }
 
+<<<<<<< Updated upstream
+=======
+         self.postUserText = function () {
+             var speechText = $("#theSpeechTest").html();
+             var userString = {
+                 stringText: speechText
+             }
+             console.log(speechText);
+             $http({
+                 method: 'POST',
+                 data: userString,
+                 url: '/Speech/SetWPM'
+             }).then(function successCallback(response) {
+                 console.log("response", response);
+             }, function errorCallback(response) {
+             });
+         }
+
+>>>>>>> Stashed changes
          //Edit the text...for future use.
          function speechClicked() {
              var speechText = $("#theSpeechTest").html();
